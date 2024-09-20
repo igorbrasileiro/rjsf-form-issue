@@ -1,0 +1,65 @@
+{
+  "lock": false,
+  "tasks": {
+    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
+    "manifest": "deno task cli manifest $(pwd)",
+    "start": "deno run -A --watch=static/,routes/ dev.ts",
+    "build": "deno run -A dev.ts build",
+    "preview": "deno run -A main.ts",
+    "update": "deno run -A -r https://fresh.deno.dev/update ."
+  },
+  "lint": {
+    "rules": {
+      "tags": [
+        "fresh",
+        "recommended"
+      ]
+    }
+  },
+  "exclude": [
+    "**/_fresh/*"
+  ],
+  "imports": {
+    "$std/": "https://deno.land/std@0.216.0/",
+    "$fresh/": "https://denopkg.com/denoland/fresh@1.6.8/",
+    "@rjsf/core": "../igor-rjsf/packages/core/dist/index.esm.js",
+    "@rjsf/utils": "../igor-rjsf/packages/utils/dist/utils.esm.js",
+    "@rjsf/validator-ajv8": "../igor-rjsf/packages/validator-ajv8/dist/validator-ajv8.esm.js",
+    "ajv-formats": "https://esm.sh/*ajv-formats@2.1.1?target=es2022",
+    "ajv": "https://esm.sh/ajv@8.12.0?target=es2022",
+    "ajv/": "https://esm.sh/ajv@8.12.0&target=es2022/",
+    "tslib": "https://esm.sh/tslib@2.6.2",
+    "fast-equals": "https://esm.sh/fast-equals@5.0.1",
+    "@supabase/supabase-js": "jsr:@supabase/supabase-js@2.44.2",
+    "@dnd-kit/accessibility": "https://esm.sh/*@dnd-kit/accessibility@3.1.0?external=react,react-dom",
+    "@dnd-kit/core": "https://esm.sh/*@dnd-kit/core@6.1.0?external=react,react-dom",
+    "@dnd-kit/sortable": "https://esm.sh/*@dnd-kit/sortable@8.0.0?external=react,react-dom,preact",
+    "@dnd-kit/modifiers": "https://esm.sh/*@dnd-kit/modifiers@7.0.0?external=react,react-dom",
+    "@dnd-kit/utilities": "https://esm.sh/*@dnd-kit/utilities@3.2.2?external=react,react-dom",
+    "@excalidraw/excalidraw": "https://esm.sh/@excalidraw/excalidraw@0.17.6/dist/excalidraw-with-preact.production.min.js?target=es2022&external=react,react-dom",
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.0",
+    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.1",
+    "preact/": "https://esm.sh/preact@10.20.1/",
+    "preact": "https://esm.sh/preact@10.20.1",
+    "react": "https://esm.sh/preact@10.20.1/compat",
+    "react/jsx-runtime": "https://esm.sh/preact@10.20.1/jsx-runtime",
+    "react-is": "https://esm.sh/react-is",
+    "react-dom": "https://esm.sh/preact@10.20.1/compat",
+    "json-schema-merge-allof": "https://esm.sh/*json-schema-merge-allof@0.8.1?target=es2022",
+    "json-schema-compare": "https://esm.sh/*json-schema-compare@0.2.2?target=es2022",
+    "compute-lcm": "https://esm.sh/compute-lcm@1.1.2?target=es2022",
+    "jsonpointer": "https://esm.sh/jsonpointer@5.0.1?target=es2022",
+    "@types/react": "https://esm.sh/preact@10.20.1/preact/compat",
+    "lodash": "https://esm.sh/lodash-es@4.17.21&target=es2022",
+    "lodash/": "https://esm.sh/lodash-es@4.17.21&target=es2022/",
+    "lodash-es/": "https://esm.sh/lodash-es@4.17.21&target=es2022/",
+    "lodash-es": "https://esm.sh/lodash-es@4.17.21",
+    "markdown-to-jsx": "https://esm.sh/*markdown-to-jsx@7.2.0?target=es2022",
+    "nanoid": "https://esm.sh/nanoid@3.3.6?target=es2022"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  }
+}
